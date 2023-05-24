@@ -1,28 +1,25 @@
 //Fornece preenchimento automático e tipagem de parâmetros
-// const axios = require('axios').default;
+const axios = require('axios').default;
 
 /**
  * Requisição GET
  */
 
-const axios = require('axios');
+// const axios = require('axios');
 
-const url = 'http://localhost:8081/funcionario'
+// const url = 'http://localhost:8081/funcionario'
 
-//Versão 1
-/* Faz uma requisição a um usuarío com um ID expecifico */
-axios.get(url + '/3107083')
-  .then(function (response) {
-    // manipula o sucesso da requisição
-    console.log(response.data);
-  })
-  .catch(function (error) {
-    // manipula erros da requisição
-    console.error(error);
-  })
-  .finally(function () {
-    // sempre será executado
-  });
+// //Versão 1
+// /* Faz uma requisição a um usuarío com um ID expecifico */
+// axios.get(url + '/3107083')
+//   .then(function (response) {
+//     console.log(response.data);
+//   })
+//   .catch(function (error) {
+//     console.error(error);
+//   })
+//   .finally(function () {
+//   });
 
 //Versão 2
 /* Opcionalmente a requisição acima poderia ser feita assim da seguinte forma */
@@ -52,3 +49,25 @@ axios.get(url + '/3107083')
 //   }
 // }
 // const data = getUser()
+
+/**
+ * 
+ * Requisição POST
+ */
+
+const urlAuth = 'http://localhost:8087/api/user/authenticate'
+
+// Exemplo login
+axios.post(urlAuth, {
+    email: "admin@gmail.com",
+    password: "adminPassword"
+})
+    .then(function (response) {
+        console.log(response.data)
+    })
+    .catch(function (error) {
+        console.log(error)
+    })
+
+
+
