@@ -1,11 +1,15 @@
-//Fornece preenchimento automático e tipagem de parâmetros
-const axios = require('axios').default;
+/**
+ * Formas de importar o Axios para que o código possa ser
+ * executado no NodeJS. Para que o código seja executado
+ * no browser, basta remover o import
+ */
+// const axios = require('axios'); // Forma de importar o Axios
+// import axios from "axios"; // Outra forma de importar o axios
+// const axios = require('axios').default; // Forma de importar o Axios com preenchimento automático
 
 /**
  * Requisição GET
  */
-
-// const axios = require('axios');
 
 // const url = 'http://localhost:8081/funcionario'
 
@@ -58,16 +62,34 @@ const axios = require('axios').default;
 const urlAuth = 'http://localhost:8087/api/user/authenticate'
 
 // Exemplo login
-axios.post(urlAuth, {
-    email: "admin@gmail.com",
-    password: "adminPassword"
-})
-    .then(function (response) {
-        console.log(response.data)
-    })
-    .catch(function (error) {
-        console.log(error)
-    })
+// axios.post(urlAuth, {
+//     email: "admin@gmail.com",
+//     password: "adminPassword"
+// })
+//     .then(function (response) {
+//         console.log(response.data)
+//     })
+//     .catch(function (error) {
+//         console.log(error)
+//     })
 
+// Exemplo de função login (para uso no cliente web)
+function login() {
+    const email = document.querySelector('#email').value
+    const password = document.querySelector('#password').value
+    axios.post(urlAuth, {
+        email: email,
+        password: password
+    })
+        .then(function (response) {
+            console.log("Response:", response.data)
+        })
+        .then(function (data) {
+            console.log("Data:", data)
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
+}
 
 
